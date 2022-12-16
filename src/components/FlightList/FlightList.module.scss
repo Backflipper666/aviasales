@@ -1,0 +1,8 @@
+.FlightList {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  @media (min-width: 1200px) {
+    min-width: 502px;
+  }
+}
