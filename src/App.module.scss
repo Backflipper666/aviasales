@@ -4,3 +4,16 @@
   justify-content: center;
   column-gap: 20px;
 }
+
+.header {
+  background-color: #f3f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 154px;
+}
+.plane {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
