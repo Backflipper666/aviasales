@@ -14,7 +14,7 @@ function App() {
 
       <div className={styles.content}>
         <Filters />
-        <main>
+        <main className={styles.main}>
           <Tabs />
           <FlightList />
           <Button />

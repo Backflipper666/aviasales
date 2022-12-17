@@ -1,6 +1,6 @@
 import logo from '../../assets/s7.svg'
 
-import styles from './FlightCard.module.css'
+import styles from './FlightCard.module.scss'
 
 const FlightCard = () => {
   return (
@@ -8,7 +8,7 @@ const FlightCard = () => {
       <div className={styles.flight}>
         <header className={styles.flight__upper}>
           <strong className={styles.price}>13 400 P</strong>
-          <img src={logo} />
+          <img src={logo} className={styles.logo} />
         </header>
         <div className={styles.schedule}>
           <div>

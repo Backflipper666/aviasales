@@ -11,9 +11,21 @@
   justify-content: center;
   align-items: center;
   height: 154px;
+  @media ((max-width: 634px)) {
+    align-items: start;
+  }
 }
 .plane {
   height: 80px;
   width: 80px;
   border-radius: 50%;
+  @media ((max-width: 634px)) {
+    position: absolute;
+  }
+}
+
+.main {
+  @media ((max-width: 634px)) {
+    padding-top: 200px;
+  }
 }
