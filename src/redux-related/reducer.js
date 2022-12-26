@@ -8,19 +8,14 @@ export const reducer = (state = initialState, action) => {
     case 'fastest':
       return 'fastest'
     case 'all':
-      console.log('all selected')
       return 'all'
     case 'zero':
-      console.log('zero')
       return 'zero'
     case 'one':
-      console.log('wone')
       return 'one'
     case 'two':
-      console.log('ttwo')
       return 'two'
     case 'three':
-      console.log('trois')
       return 'three'
     default:
       return state
