@@ -25,3 +25,7 @@ export const selectCheapest = () => {
 export const selectFastest = () => {
   return { type: 'fastest' }
 }
+
+export const checkEverything = () => {
+  return { type: 'everything checked' }
+}

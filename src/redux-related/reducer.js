@@ -10,6 +10,7 @@ const initialState = {
   twoSelected: true,
   threeSelected: true,
 }
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'cheapest':
@@ -17,7 +18,52 @@ export const reducer = (state = initialState, action) => {
     case 'fastest':
       return 'fastest'
     case 'all':
+      if (
+        (!state.allSelected && !state.zeroSelected) ||
+        !state.oneSelected ||
+        !state.twoSelected ||
+        !state.threeSelected
+      ) {
+        return {
+          ...state,
+          allSelected: true,
+          zeroSelected: true,
+          oneSelected: true,
+          twoSelected: true,
+          threeSelected: true,
+        }
+      } else if (!state.allSelected) {
+        return {
+          ...state,
+          allSelected: true,
+          zeroSelected: true,
+          oneSelected: true,
+          twoSelected: true,
+          threeSelected: true,
+        }
+      } else if (state.allSelected) {
+        console.log('ti')
+        return {
+          ...state,
+          allSelected: false,
+          zeroSelected: false,
+          oneSelected: false,
+          twoSelected: false,
+          threeSelected: false,
+        }
+      }
+
       return { ...state, allSelected: !state.allSelected }
+    case 'everything checked':
+      return {
+        ...state,
+        allSelected: true,
+        zeroSelected: true,
+        oneSelected: true,
+        twoSelected: true,
+        threeSelected: true,
+      }
+
     case 'zero':
       return { ...state, zeroSelected: !state.zeroSelected }
     case 'one':

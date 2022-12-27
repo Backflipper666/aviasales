@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -15,7 +16,15 @@ const Filters = ({
   oneSelected,
   twoSelected,
   threeSelected,
+  checkEverything,
 }) => {
+  const everythingChecked = zeroSelected && oneSelected && twoSelected && threeSelected
+
+  useEffect(() => {
+    if (everythingChecked) {
+      checkEverything()
+    }
+  }, [everythingChecked])
   return (
     <fieldset className={styles.fieldset}>
       <h5 className={styles.header}>количество пересадок</h5>
@@ -32,7 +41,7 @@ const Filters = ({
               console.log('yess!')
             }
           }}
-          checked={allSelected}
+          checked={allSelected && everythingChecked}
         />
         <label htmlFor="all" className={styles.label}>
           Все
@@ -45,7 +54,7 @@ const Filters = ({
           name="without"
           className={styles.checkbox}
           onChange={selectZero}
-          checked={zeroSelected && allSelected}
+          checked={(zeroSelected && allSelected) || zeroSelected}
         />
         <label htmlFor="without" className={styles.label}>
           Без пересадок
@@ -58,7 +67,7 @@ const Filters = ({
           name="one"
           className={styles.checkbox}
           onChange={selectOne}
-          checked={oneSelected && allSelected}
+          checked={(oneSelected && allSelected) || oneSelected}
         />
         <label htmlFor="one" className={styles.label}>
           1 пересадка
@@ -71,7 +80,7 @@ const Filters = ({
           name="two"
           className={styles.checkbox}
           onChange={selectTwo}
-          checked={twoSelected && allSelected}
+          checked={(twoSelected && allSelected) || twoSelected}
         />
         <label htmlFor="two" className={styles.label}>
           2 пересадки
@@ -84,7 +93,7 @@ const Filters = ({
           name="three"
           className={styles.checkbox}
           onChange={selectThree}
-          checked={threeSelected && allSelected}
+          checked={(threeSelected && allSelected) || threeSelected}
         />
         <label htmlFor="three" className={styles.label}>
           3 пересадки
@@ -107,13 +116,17 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  const { selectAll, selectZero, selectOne, selectTwo, selectThree } = bindActionCreators(actions, dispatch)
+  const { selectAll, selectZero, selectOne, selectTwo, selectThree, checkEverything } = bindActionCreators(
+    actions,
+    dispatch
+  )
   return {
     selectAll,
     selectZero,
     selectOne,
     selectTwo,
     selectThree,
+    checkEverything,
   }
 }
 
