@@ -9,6 +9,7 @@ const initialState = {
   oneSelected: true,
   twoSelected: true,
   threeSelected: true,
+  tickets: [],
 }
 
 export const reducer = (state = initialState, action) => {
@@ -42,7 +43,6 @@ export const reducer = (state = initialState, action) => {
           threeSelected: true,
         }
       } else if (state.allSelected) {
-        console.log('ti')
         return {
           ...state,
           allSelected: false,
@@ -72,6 +72,8 @@ export const reducer = (state = initialState, action) => {
       return { ...state, twoSelected: !state.twoSelected }
     case 'three':
       return { ...state, threeSelected: !state.threeSelected }
+    case 'ticket':
+      return { ...state, tickets: action.payload }
     default:
       return state
   }

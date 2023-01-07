@@ -29,3 +29,16 @@ export const selectFastest = () => {
 export const checkEverything = () => {
   return { type: 'everything checked' }
 }
+
+export const getTickets = () => {
+  return {
+    type: 'ticket',
+  }
+}
+
+export const addManyCustomersAction = (payload) => {
+  return {
+    type: 'ticket',
+    payload,
+  }
+}
